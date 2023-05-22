@@ -10,7 +10,7 @@ public class IceChange_HJW : MonoBehaviour
     public GameObject[] gameObjects;
 
     private int currentIndex = 0;
-    private float waitTime = 1f;
+    private float waitTime = 0.5f;
 
     private bool isChangingMaterials = false;
 
@@ -64,8 +64,8 @@ public class IceChange_HJW : MonoBehaviour
         }
 
         // 회전 변경
-        float numRotations = 3f; // 로테이션 반복값
-        float duration = 0.3f; // 애니메이션 동작하는 시간
+        float numRotations = 2f; // 로테이션 반복값
+        float duration = 0.1f; // 애니메이션 동작하는 시간
         Quaternion[] startRotations = new Quaternion[childTransforms.Count];        //자식객체의 rotation시작점
         Quaternion[] targetRotations = new Quaternion[childTransforms.Count];       //자식객체의 rotation시 target점
 
