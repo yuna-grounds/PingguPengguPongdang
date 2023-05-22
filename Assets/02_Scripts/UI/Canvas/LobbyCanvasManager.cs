@@ -50,14 +50,13 @@ public class LobbyCanvasManager : MonoBehaviour
 
     public void OnClickRefresh()
     {
+        //PhotonNetworkManager.Instance.RoomUpdate();
         RoomUpdate();
     }
 
     private void RoomUpdate()
     {
         int roomCount = PhotonNetworkManager.Instance.GetRoomListCount();
-        print("현재 방 개수 : " + roomCount);
-        print("현재 viewCotent 자식 개수 : " + roomCount);
         for (int idx = 0; idx < viewContent.transform.childCount; idx++)
         {
             Destroy(viewContent.transform.GetChild(idx).gameObject);
@@ -66,7 +65,16 @@ public class LobbyCanvasManager : MonoBehaviour
         for (int idx = 0; idx < roomCount; idx++)
         {
             GameObject room = Instantiate(roomPrefab);
+            Transform obj = room.transform.GetChild(0).transform;
+
+            //Info info = (Info)PhotonNetworkManager.Instance.GetRoomMasterPlayerName();
+            //if (info.roomName == "") { return;}
+
+            obj.Find("TextHost").GetComponent<TextMeshProUGUI>().text = "Player1";
+            obj.Find("TextRoomName").GetComponent<TextMeshProUGUI>().text = "AbZv4";
+            obj.Find("TextCount").GetComponent<TextMeshProUGUI>().text = "1/2";
             SetRoomListPosition(room, idx);
+            //Debug.Log(info.ToString());
         }
 
         // Content 영역 높이 조정
@@ -88,7 +96,8 @@ public class LobbyCanvasManager : MonoBehaviour
 
     public void OnClickJoin()
     {
-        Debug.Log("선택한 방 입장");
+        PhotonNetworkManager.Instance.FastJoinRoom();
+        joinRoom = true;
     }
 
     public void OnClickFastJoin()
@@ -96,16 +105,25 @@ public class LobbyCanvasManager : MonoBehaviour
         PhotonNetworkManager.Instance.FastJoinRoom();
         joinRoom = true;
     }
+
+    private bool LobbyStart = false;
     // Update is called once per frame
     void Update()
     {
-        print("시작");
+        if (!LobbyStart)
+        {
+            RoomUpdate();
+            LobbyStart = true;
+            return;
+        }
+        if (lobbyCanvas.activeSelf)
+        {
+            Invoke("RoomUpdate", 5f);
+        }
         foreach (Player player in PhotonNetwork.PlayerList)
         {
-            
             print("Player : " + player.NickName);
         }
-        print("종료");
         if (!showName && lobbyCanvas.activeSelf)
         {
             LobbyNickName.text = GameData.name;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.2153985, g: 0.35898125, b: 0.7374741, a: 1}
+  m_IndirectSpecularColor: {r: 0.21532379, g: 0.35718942, b: 0.7427421, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2332,7 +2332,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1867985479}
         m_TargetAssemblyTypeName: LobbyCanvasManager, Assembly-CSharp
         m_MethodName: OnClickBackBtn
         m_Mode: 1
@@ -2471,6 +2471,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2794921690794531407, guid: 4117f2b9b7a1a3f42943e97420705b95, type: 3}
   m_PrefabInstance: {fileID: 174699841}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &174981343 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5443802535201256836, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
+  m_PrefabInstance: {fileID: 882201068}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &184674730
 PrefabInstance:
@@ -6587,7 +6592,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1867985479}
         m_TargetAssemblyTypeName: LobbyCanvasManager, Assembly-CSharp
         m_MethodName: OnClickJoin
         m_Mode: 1
@@ -9240,75 +9245,75 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 681259426052122970, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 681259426052122970, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 681259426052122970, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 61.36
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 681259426052122970, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 681259426052122970, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 107.32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 681259426052122970, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1552365235212105977, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1552365235212105977, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1552365235212105977, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 36.32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1552365235212105977, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1552365235212105977, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 56.48
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1552365235212105977, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2113578548447568058, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2113578548447568058, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2113578548447568058, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 36.32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2113578548447568058, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2113578548447568058, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 18.16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2113578548447568058, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5443802535201256836, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
       propertyPath: m_Name
@@ -9405,6 +9410,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6895320053669270771, guid: 3bbe8e9afd7ee5b4598d0e021a80baad, type: 3}
   m_PrefabInstance: {fileID: 882201068}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &882201075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174981343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 2
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &883411662
 GameObject:
   m_ObjectHideFlags: 0
@@ -10895,14 +10922,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.27263758, y: 0.72574407, z: -0.22212754, w: -0.59128994}
-  m_LocalPosition: {x: 865, y: 50, z: 11.7}
-  m_LocalScale: {x: 5.4606686, y: 5.460668, z: 5.460668}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 815.1, y: 7.435, z: 0.881}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 40.153, y: 254.67, z: -10.025}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &970422317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12048,7 +12075,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0009820994, y: 0}
+  m_AnchoredPosition: {x: 0.0046180272, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1111592102
@@ -12578,7 +12605,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1126982252}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1867985476}
+        m_TargetAssemblyTypeName: RoomCanvasManager, Assembly-CSharp
+        m_MethodName: OnClickBackBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1126982252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13823,7 +13862,7 @@ PrefabInstance:
     - target: {fileID: 6034182185330846410, guid: 977f5700cad1e3749800f12c7ea838ad, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1867985479}
     - target: {fileID: 6034182185330846410, guid: 977f5700cad1e3749800f12c7ea838ad, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -18461,7 +18500,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1867985479}
         m_TargetAssemblyTypeName: LobbyCanvasManager, Assembly-CSharp
         m_MethodName: OnClickRefresh
         m_Mode: 1
@@ -19022,7 +19061,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1867985480}
         m_TargetAssemblyTypeName: GenerateCanvasManager, Assembly-CSharp
         m_MethodName: OnClickCreateCharacter
         m_Mode: 1
@@ -20181,8 +20220,8 @@ RectTransform:
   m_Father: {fileID: 1817052010}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.43333325}
-  m_AnchorMax: {x: 1, y: 0.9999999}
+  m_AnchorMin: {x: 0, y: 0.43333334}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -20674,7 +20713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5550776016039436608, guid: f39a9d103c4129b42a53567f6cd8356a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5550776016039436608, guid: f39a9d103c4129b42a53567f6cd8356a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20714,7 +20753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5550776016039436609, guid: f39a9d103c4129b42a53567f6cd8356a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6542672087622219705, guid: f39a9d103c4129b42a53567f6cd8356a, type: 3}
       propertyPath: _interactors.Array.size
@@ -21697,7 +21736,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1867985479}
         m_TargetAssemblyTypeName: LobbyCanvasManager, Assembly-CSharp
         m_MethodName: OnClickCreateRoom
         m_Mode: 1
@@ -22402,6 +22441,7 @@ GameObject:
   - component: {fileID: 1867985478}
   - component: {fileID: 1867985477}
   - component: {fileID: 1867985476}
+  - component: {fileID: 1867985485}
   m_Layer: 0
   m_Name: UIController
   m_TagString: Untagged
@@ -22525,6 +22565,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc55746b123eb74e891ff9726a537cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomName: 
+  viewContent: {fileID: 1097976952}
+  _roomListing: {fileID: 7270983702626096632, guid: 626f6f6c199aaa64a90693993e3ff07f, type: 3}
 --- !u!114 &1867985483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22562,6 +22605,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1867985485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867985475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 1867985482}
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1871907515
 GameObject:
   m_ObjectHideFlags: 0
@@ -24785,7 +24851,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2000653415}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1867985476}
+        m_TargetAssemblyTypeName: RoomCanvasManager, Assembly-CSharp
+        m_MethodName: OnClickReady
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2000653415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26487,7 +26565,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1867985479}
         m_TargetAssemblyTypeName: LobbyCanvasManager, Assembly-CSharp
         m_MethodName: OnClickFastJoin
         m_Mode: 1

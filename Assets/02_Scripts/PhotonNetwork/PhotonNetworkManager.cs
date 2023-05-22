@@ -5,6 +5,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.Networking.Types;
+using ExitGames.Client.Photon;
 
 
 public enum NETWORK_STATE 
@@ -21,6 +22,30 @@ public enum NETWORK_STATE
     FailedJoiningRoom,          // 방에 접속 실패
     JoinedRoom                  // 룸에 접속됨
 }
+
+public struct Info
+{
+    public string roomName;
+    public string masterClientId;
+    public int maxPlayers;
+    public int playerCount;
+
+    public Info(string _roomName, string _masterClientId, int _maxPlayers, int _playerCount)
+    {
+        this.roomName = _roomName;
+        this.masterClientId = _masterClientId;
+        this.maxPlayers = _maxPlayers;
+        this.playerCount = _playerCount;
+    }
+
+    public string ToString()
+    {
+        return $"{this.roomName}, {this.masterClientId}, {this.maxPlayers}, {this.playerCount}";
+    }
+
+}
+
+
 
 public class PhotonNetworkManager : MonoBehaviourPunCallbacks, IPunObservable
 {
@@ -149,13 +174,16 @@ public class PhotonNetworkManager : MonoBehaviourPunCallbacks, IPunObservable
 
         RoomOptions options = new RoomOptions();
         options.MaxPlayers = 2;
+        string name = CreateRoomRandomName();
+
         options.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable
         {
+            { "RoomName", name },
             { "MasterPlayer", PhotonNetwork.NickName }
         };
 
         PhotonNetwork.CreateRoom(
-            CreateRoomRandomName(),
+            name,
             options
         );
     }
@@ -171,18 +199,52 @@ public class PhotonNetworkManager : MonoBehaviourPunCallbacks, IPunObservable
         return PhotonNetwork.CountOfRooms;
     }
 
+    public static bool joinedPlayer = false;
+    public static string joinedPlayerName = "";
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        joinedPlayer = true;
+        joinedPlayerName = newPlayer.NickName;
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        joinedPlayer = false;
+        joinedPlayerName = "";
+    }
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        //print("룸 정보 업데이트");
+        //foreach(RoomInfo info in roomList)
+        //{
+        //    roomInfoList.Add(new Info(
+        //        info.Name,
+        //        info.masterClientId,
+        //        info.MaxPlayers,
+        //        info.PlayerCount
+        //    ));
+        //    print("룸 정보(이름) : " + info.Name);
+        //    print("룸 정보(최대인원수) : " + info.MaxPlayers);
+        //    print("룸 정보(인원수) : " + info.PlayerCount);
+        //    print("룸 정보(마스터아이디) : " + info.masterClientId);
+        //}
+    }
+
     public override void OnCreatedRoom()
     {
         network = NETWORK_STATE.CreatedRoom;
         print("방 생성 성공");
         PhotonNetwork.JoinRoom(CreateRoomRandomName());
         network = NETWORK_STATE.JoiningRoom;
+
     }
 
     public override void OnJoinedRoom()
     {
         print("방 입장");
         network = NETWORK_STATE.JoinedRoom;
+        
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message)
@@ -209,11 +271,17 @@ public class PhotonNetworkManager : MonoBehaviourPunCallbacks, IPunObservable
     }
 
 
-    public string GetRoomMasterPlayerName()
+    public Info GetRoomMasterPlayerName()
     {
         if (PhotonNetwork.InRoom)
         {
             Room currentRoom = PhotonNetwork.CurrentRoom;
+
+            //PhotonNetwork.PlayerList[0].SetCustomProperties(
+            //    new ExitGames.Client.Photon.Hashtable {
+            //        { "PlayerTag", "" },
+            //        {"PlayerTag2", "" }
+            //    });
 
             string roomName = currentRoom.Name;
             int playerCount = currentRoom.PlayerCount;
@@ -226,17 +294,28 @@ public class PhotonNetworkManager : MonoBehaviourPunCallbacks, IPunObservable
                 {
                     masterPlayer = currentRoom.CustomProperties["MasterPlayer"].ToString();
                 }
+                if (currentRoom.CustomProperties.ContainsKey("RoomName"))
+                {
+                    roomName = currentRoom.CustomProperties["RoomName"].ToString();
+                }
+                print("룸 이름은 : " + roomName);
+
             }
-            
 
             Debug.Log("Current Room Name: " + roomName);
             Debug.Log("Current Player Count: " + playerCount);
             Debug.Log("Max Players: " + maxPlayers);
             Debug.Log("Master Player: " + masterPlayer);
 
-            return masterPlayer;
+            return new Info(
+                roomName,
+                masterPlayer,
+                maxPlayers,
+                playerCount
+            );
+
         }
-        return "";
+        return new Info("", "", 0,0);
     }
 
     public void LeftRoom()
@@ -253,6 +332,8 @@ public class PhotonNetworkManager : MonoBehaviourPunCallbacks, IPunObservable
         
 
     }
+
+
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {

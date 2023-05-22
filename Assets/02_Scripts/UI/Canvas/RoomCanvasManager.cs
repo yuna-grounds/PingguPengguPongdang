@@ -1,36 +1,34 @@
 
+using Photon.Pun;
+using Photon.Realtime;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
-public class RoomCanvasManager : MonoBehaviour
+public class RoomCanvasManager : MonoBehaviourPun
 {
     [SerializeField] private GameObject optionsCanvas;
     [SerializeField] private GameObject lobbyCanvas;
     [SerializeField] private GameObject roomCanvas;
     [SerializeField] private TextMeshProUGUI Player1Name;
     [SerializeField] private TextMeshProUGUI Player2Name;
-
-    private bool join = false;
+    
     private void Update()
     {
-        if (!join && roomCanvas.activeSelf)
+        if (PhotonNetworkManager.network == NETWORK_STATE.JoinedRoom)
         {
-            string masterName = PhotonNetworkManager.Instance.GetRoomMasterPlayerName();
-            if (masterName.Equals(GameData.name))
+            for (int i = 0; i < 2; i++)
             {
-                print("10");
                 Player1Name.text = GameData.name;
-                Player2Name.text = "´ë±âÁß";
+                string player2 = PhotonNetwork.PlayerList.Where(x => x.NickName != GameData.name).ToList()[0].NickName;
+                if (player2 == null || player2 == "") player2 = "";
+                Player2Name.text = player2;
             }
-            else
-            {
-                Player1Name.text = masterName;
-                Player2Name.text = GameData.name;
-            }
-            join = true;
         }
-        
     }
+    
+
     public void OnClickOptions()
     {
         roomCanvas.SetActive(false);
@@ -47,6 +45,18 @@ public class RoomCanvasManager : MonoBehaviour
 
     public void OnClickReady()
     {
-        print("To-do something");
+        print("A : " + PhotonNetwork.PlayerList.Count());
+        
+        if (PhotonNetwork.PlayerList.Count() >= 2f && PhotonNetwork.IsMasterClient)
+        {
+                photonView.RPC("ChangeSceneRPC", RpcTarget.All, "World_HJW");
+        }
+    }
+
+
+    [PunRPC]
+    private void ChangeSceneRPC(string targetSceneName)
+    {
+        PhotonNetwork.LoadLevel(targetSceneName);
     }
 }
