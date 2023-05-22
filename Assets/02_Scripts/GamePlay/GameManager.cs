@@ -77,6 +77,13 @@ public class GameManager : MonoBehaviourPun
                     SettingsToPlay();
                     playingSettings = true;
                     print("Round " + round);
+                    int a = 0;
+                    foreach (Transform t in ices)
+                    {
+                        if (t.GetComponent<IceAction_KSW>().GetLife() > 0)
+                            a++;
+                    }
+                    print("This Ice Count : " + a);
                 }
                 break;
         }
@@ -86,6 +93,12 @@ public class GameManager : MonoBehaviourPun
     {
         switch (gameState)
         {
+            case GameState.roulette:
+                if (deadZone.GetComponent<IceAction_KSW>().GetLife() == 0)
+                {
+                    DeadZoneKill();
+                }
+                break;
             case GameState.play:
                 if (deadZone.GetComponent<IceAction_KSW>().GetLife() == 0)
                 {
@@ -119,7 +132,6 @@ public class GameManager : MonoBehaviourPun
     {
         if (deadZone != null)
         {
-            print("DeadZone Reset");
             deadZone.GetComponent<IceAction_KSW>().ThisIsNotDeadZone();
             deadZone = null;
         }
@@ -132,7 +144,6 @@ public class GameManager : MonoBehaviourPun
         deadZone = temp[Random.Range(0, temp.Count)];
         deadZone.GetComponent<IceAction_KSW>().ThisIsDeadZone();
         deadZone.GetComponent<MeshRenderer>().material = deadMat;
-        print("DeadZoneSet");
     }
 
     void DeadZoneKill()
@@ -146,5 +157,14 @@ public class GameManager : MonoBehaviourPun
     public void Breaked()
     {
         gameState = GameState.ready;
+    }
+
+    void IceLifeRollback()
+    {
+        foreach (Transform t in ices)
+        {
+            if (t.GetComponent<IceAction_KSW>().GetLife() > 0)
+                t.GetComponent<IceAction_KSW>().ResetLife();
+        }
     }
 }

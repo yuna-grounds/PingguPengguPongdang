@@ -38,6 +38,11 @@ public class IceAction_KSW : MonoBehaviourPun
             StartCoroutine(CoolSet(other));
             life--;
             print("맞아부러써");
+            if (life == 0)
+            {
+
+                GameObject.Find("GameManager").SendMessage("Breaked");
+            }
         }
     }
     void LifeCheck()
@@ -47,7 +52,6 @@ public class IceAction_KSW : MonoBehaviourPun
             mesh.enabled = false;
             render.enabled = false;
 
-            GameObject.Find("GameManager").SendMessage("Breaked");
         }
     }
 
@@ -72,11 +76,16 @@ public class IceAction_KSW : MonoBehaviourPun
         }
     }
 
-    public void Reset()
+    public void ReBuild()
     {
         life = 3;
         mesh.enabled = true;
         render.enabled = true;
+    }
+
+    public void ResetLife()
+    {
+        life = 3;
     }
 
     public void LifeZero()
