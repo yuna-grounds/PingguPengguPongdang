@@ -1,15 +1,7 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Resources/RoomListElement.prefab.meta
-guid: 238d6f96d9ac2334696019c07ac4b6e1
+guid: 26873c27bfbd06f4385fcae5027e5105
 PrefabImporter:
   externalObjects: {}
-========
-guid: 97ec53308dbf8472e90d7bbf7e739fc1
-ShaderImporter:
-  externalObjects: {}
-  defaultTextures: []
-  nonModifiableTextures: []
->>>>>>>> pr/2:Assets/09_Assets/GUI Kit - BlueSky/ResourcesData/SampleParticle/Extentions/UIParticle/hidden particle.shader.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 
