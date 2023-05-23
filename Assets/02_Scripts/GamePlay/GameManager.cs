@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviourPun
         {
             t.transform.AddComponent<IceAction_KSW>();
         }
+
     }
 
 
@@ -91,10 +92,13 @@ public class GameManager : MonoBehaviourPun
         switch (gameState)
         {
             case GameState.roulette:
-                if (deadZone.GetComponent<IceAction_KSW>().GetLife() == 0)
+                if (deadZone != null)
                 {
-                    DeadZoneKill();
-                    gameState = GameState.finished;
+                    if (deadZone.GetComponent<IceAction_KSW>().GetLife() == 0)
+                    {
+                        DeadZoneKill();
+                        gameState = GameState.finished;
+                    }
                 }
                 break;
             case GameState.play:
