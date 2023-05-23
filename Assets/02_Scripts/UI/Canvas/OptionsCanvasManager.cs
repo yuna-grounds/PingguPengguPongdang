@@ -6,32 +6,25 @@ using UnityEngine.UI;
 public class OptionsCanvasManager : MonoBehaviour
 {
     [SerializeField] private GameObject optionsCanvas;
-    [SerializeField] private Button Bgm;
-    [SerializeField] private Button Sfx;
+    [SerializeField] private Toggle Bgm;
+    [SerializeField] private Toggle Sfx;
 
     public Sprite muteSprite;
     public Sprite unMuteSprite;
     public static GameObject prevCanvas;
 
-    private bool bgmState = false;
-    private bool sfxState = false;
+    private bool bgmState = true;
+    private bool sfxState = true;
     public void OnClickExit()
     {
         optionsCanvas.SetActive(false);
         prevCanvas.SetActive(true);
     }
 
-    private void muteFunc(ref bool state, Button target)
+    private void muteFunc(ref bool state, Toggle target)
     {
         state = !state;
-        if (state)
-        {
-            target.image.sprite = muteSprite;
-        }
-        else
-        {
-            target.image.sprite = unMuteSprite;
-        }
+        target.isOn = state;
     }
 
     public void OnBgmMuteToggleBtn()

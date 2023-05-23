@@ -1,4 +1,5 @@
 using Oculus.Interaction.Input;
+using Photon.Pun.Demo.Cockpit;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -21,7 +22,7 @@ public class GenerateCanvasManager : MonoBehaviour
     private void Start()
     {
         characterFlag = false;
-        DuplicationText.text = "캐릭터 이름을 지어주세요.";
+        OnClickGenerateKoreanName();
     }
     public void OnClickCreateCharacter()
     {
@@ -30,14 +31,21 @@ public class GenerateCanvasManager : MonoBehaviour
             DuplicationText.text = "닉네임 란이 비어있습니다.";
             return;
         }
-        if (PhotonNetworkManager.Instance.DuplicateCheck(PlayerName.text))
-        {
-            DuplicationText.text = "닉네임이 중복되었습니다";
-            return;
-        }
 
         DuplicationText.text = "캐릭터 생성이 완료되었습니다.";
+        GameData.name = PlayerName.text;
+        PhotonNetworkManager.Instance.SetNickName(PlayerName.text);
         characterFlag = true;
+
+        generateCanvas.SetActive(false);
+        lobbyCanvas.SetActive(true);
+    }
+
+    public void OnClickGenerateKoreanName()
+    {
+        KoreanNameGenerator nameGenerator = new KoreanNameGenerator();
+        string koreanName = nameGenerator.GenerateKoreanName();
+        PlayerName.text = koreanName;
     }
 
     public bool EmptyCheck()
@@ -67,18 +75,7 @@ public class GenerateCanvasManager : MonoBehaviour
 
     private void Update()
     {
-       if (characterFlag && PlayerName.text.Equals(""))
-        {
-            characterFlag = false;
-            DuplicationText.text = "캐릭터 이름을 지어주세요.";
-        }
-
-        if (characterFlag && PhotonNetworkManager.network == NETWORK_STATE.JoinedLobby)
-        {
-            generateCanvas.SetActive(false);
-            lobbyCanvas.SetActive(true);
-            PlayerName.text = "";
-        }
+       
     }
 
 }

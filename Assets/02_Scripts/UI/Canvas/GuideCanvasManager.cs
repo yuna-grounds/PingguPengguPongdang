@@ -16,22 +16,46 @@ public class GuideCanvasManager : MonoBehaviour
 
     private void OnEnable()
     {
-        print("En");
         idx = 1;
     }
 
     private void Start()
     {
-        print("Start");
         idx = 1;
+    }
+
+    public void OnClickNext()
+    {
+        idx++;
+        if (idx > 3)
+        {
+            OnClickExit();
+            return;
+        }
+        GuideChange();
+    }
+
+    public void OnClickPrev()
+    {
+        idx--;
+        if (idx < 1)
+        {
+            OnClickExit();
+            return;
+        }
+        GuideChange();
     }
 
     public void GuideChange()
     {
-        print("guideChanged : "+idx);
-        idx++;
         switch (idx)
         {
+            case 1:
+                guide1Pannel.SetActive(true);
+                guide2Pannel.SetActive(false);
+                guide3Pannel.SetActive(false);
+                break;
+
             case 2:
                 guide1Pannel.SetActive(false);
                 guide2Pannel.SetActive(true);
@@ -42,7 +66,6 @@ public class GuideCanvasManager : MonoBehaviour
                 guide1Pannel.SetActive(false);
                 guide2Pannel.SetActive(false);
                 guide3Pannel.SetActive(true);
-                idx = 1;
                 break;
         }
     }
