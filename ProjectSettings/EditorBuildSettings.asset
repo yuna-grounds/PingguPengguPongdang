@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01_Scenes/World_HJW.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/01_Scenes/World_KSW.unity
+    guid: 97eb28daddb68f442ac0541c521162e5
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 152fefdd3a6563d46b1e5c2de546e7d3, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 02b0801560ee5cf4383e481c76583f7a, type: 2}

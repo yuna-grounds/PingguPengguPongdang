@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviourPun
     public Transform giantPos;
     public Transform miniPos;
     public Material deadMat;
+
+    public Transform giantPeng;
+    public Transform miniPeng;
+
     List<Transform> ices;
     Transform deadZone;
     GameState gameState;
@@ -32,7 +36,14 @@ public class GameManager : MonoBehaviourPun
         {
             t.transform.AddComponent<IceAction_KSW>();
         }
-
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.Instantiate(giantPeng.name, giantPos.position, giantPos.rotation);
+        }
+        else
+        {
+            PhotonNetwork.Instantiate(miniPeng.name, miniPos.position, miniPos.rotation);
+        }
     }
 
 
