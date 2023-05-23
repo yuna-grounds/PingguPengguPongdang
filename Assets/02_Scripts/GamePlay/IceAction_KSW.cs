@@ -59,7 +59,7 @@ public class IceAction_KSW : MonoBehaviourPun
     {
         if (!isDeadZone)
         {
-            switch(life)
+            switch (life)
             {
                 case 3:
                     render.material = mats[0];

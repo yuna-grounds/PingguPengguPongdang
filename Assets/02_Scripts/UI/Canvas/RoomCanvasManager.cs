@@ -51,9 +51,10 @@ public class RoomCanvasManager : MonoBehaviourPun
     {
         print("A : " + PhotonNetwork.PlayerList.Count());
 
-        if (PhotonNetwork.PlayerList.Count() >= 2f && PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.PlayerList.Count() >= 1f && PhotonNetwork.IsMasterClient)
         {
-            photonView.RPC("ChangeSceneRPC", RpcTarget.All, "World_HJW");
+            photonView.RPC("ChangeSceneRPC", RpcTarget.All, "World_KSW");
+            PhotonNetworkManager.network = NETWORK_STATE.GameOn;
         }
 
     }
