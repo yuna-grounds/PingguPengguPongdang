@@ -112,19 +112,19 @@ public class PhotonNetworkManager : MonoBehaviourPunCallbacks, IPunObservable
     }
 
     // 닉네임 중복검사 메소드
-    public bool DuplicateCheck(string name)
-    {
-        foreach (Player player in PhotonNetwork.PlayerList)
-        {
-            if (name.Equals(player.NickName))
-            {
-                return true;
-            }
-        }
-        PhotonNetwork.NickName = name;
-        GameData.name = PhotonNetwork.NickName;
-        return false;
-    }
+    //public bool DuplicateCheck(string name)
+    //{
+    //    foreach (Player player in PhotonNetwork.PlayerList)
+    //    {
+    //        if (name.Equals(player.NickName))
+    //        {
+    //            return true;
+    //        }
+    //    }
+    //    PhotonNetwork.NickName = name;
+    //    GameData.name = PhotonNetwork.NickName;
+    //    return false;
+    //}
 
 
 
@@ -186,6 +186,11 @@ public class PhotonNetworkManager : MonoBehaviourPunCallbacks, IPunObservable
             name,
             options
         );
+    }
+
+    public void SetNickName(string name)
+    {
+        PhotonNetwork.NickName = name;
     }
 
     public void FastJoinRoom()

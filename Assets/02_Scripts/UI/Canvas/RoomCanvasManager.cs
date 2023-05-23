@@ -21,7 +21,11 @@ public class RoomCanvasManager : MonoBehaviourPun
             for (int i = 0; i < 2; i++)
             {
                 Player1Name.text = GameData.name;
-                string player2 = PhotonNetwork.PlayerList.Where(x => x.NickName != GameData.name).ToList()[0].NickName;
+                string player2 = "";
+                if (PhotonNetwork.PlayerList.Where(x => x.NickName != GameData.name).Count() > 0)
+                {
+                    player2 = PhotonNetwork.PlayerList.Where(x => x.NickName != GameData.name).ToList()[0].NickName;
+                }
                 if (player2 == null || player2 == "") player2 = "";
                 Player2Name.text = player2;
             }
@@ -46,11 +50,12 @@ public class RoomCanvasManager : MonoBehaviourPun
     public void OnClickReady()
     {
         print("A : " + PhotonNetwork.PlayerList.Count());
-        
+
         if (PhotonNetwork.PlayerList.Count() >= 2f && PhotonNetwork.IsMasterClient)
         {
-                photonView.RPC("ChangeSceneRPC", RpcTarget.All, "World_HJW");
+            photonView.RPC("ChangeSceneRPC", RpcTarget.All, "World_HJW");
         }
+
     }
 
 

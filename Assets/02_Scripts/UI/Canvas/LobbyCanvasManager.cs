@@ -14,7 +14,7 @@ public class LobbyCanvasManager : MonoBehaviour
     [SerializeField] private GameObject lobbyCanvas;
     [SerializeField] private GameObject roomCanvas;
     [SerializeField] private TextMeshProUGUI LobbyNickName;
-    [SerializeField] private GameObject statePannel;
+    //[SerializeField] private GameObject statePannel;
     [SerializeField] private GameObject roomPrefab;
     [SerializeField] private GameObject viewContent;
     private bool showName = false;
@@ -44,7 +44,7 @@ public class LobbyCanvasManager : MonoBehaviour
 
     public void onClickPannelExit()
     {
-        statePannel.SetActive(false);
+        //statePannel.SetActive(false);
         createRoom = false;
     }
 
@@ -114,6 +114,7 @@ public class LobbyCanvasManager : MonoBehaviour
         {
             RoomUpdate();
             LobbyStart = true;
+            LobbyNickName.text = GameData.name;
             return;
         }
         if (lobbyCanvas.activeSelf)
@@ -136,33 +137,33 @@ public class LobbyCanvasManager : MonoBehaviour
             {
                 case NETWORK_STATE.CreatingRoom:
                     // 规 积己 吝 菩澄 剁快扁
-                    stateChange(true, "规 积己 吝 . . .");
+                    //stateChange(true, "规 积己 吝 . . .");
                     break;
                 case NETWORK_STATE.CreatedRoom:
                     // 规 积己 己傍 棺 立加吝 菩澄 剁快扁
-                    stateChange(true, "规 积己 己傍!");
+                    //stateChange(true, "规 积己 己傍!");
                     break;
                 case NETWORK_STATE.JoiningRoom:
                     // 规 积己 己傍 棺 立加吝 菩澄 剁快扁
-                    stateChange(true, "规 立加 吝 . . .");
+                    //stateChange(true, "规 立加 吝 . . .");
                     break;
                 case NETWORK_STATE.JoinedRoom:
                     lobbyCanvas.SetActive(false);
                     roomCanvas.SetActive(true);
                     // 规积己 菩澄 掺扁
-                    statePannel.SetActive(false);
+                    //statePannel.SetActive(false);
                     createRoom = false;
                     joinRoom = false;
                     break;
                 case NETWORK_STATE.FailedCreatedRoom:
                     // 规 积己 角菩 菩澄 剁快扁
-                    stateChange(true, "规 积己 角菩!\n促矫 矫档秦 林技夸.");
+                    //stateChange(true, "规 积己 角菩!\n促矫 矫档秦 林技夸.");
                     createRoom = false;
                     joinRoom = false;
                     break;
                 case NETWORK_STATE.FailedJoiningRoom:
                     // 规 立加 角菩 菩澄 剁快扁
-                    stateChange(true, "规 立加 角菩!\n促矫 矫档秦 林技夸.");
+                    //stateChange(true, "规 立加 角菩!\n促矫 矫档秦 林技夸.");
                     createRoom = false;
                     joinRoom = false;
                     break;
@@ -171,9 +172,9 @@ public class LobbyCanvasManager : MonoBehaviour
         
     }
 
-    private void stateChange(bool pannelOn, string message)
-    {
-        statePannel.SetActive(pannelOn);
-        statePannel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = message;
-    }
+    //private void stateChange(bool pannelOn, string message)
+    //{
+    //    statePannel.SetActive(pannelOn);
+    //    statePannel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = message;
+    //}
 }
