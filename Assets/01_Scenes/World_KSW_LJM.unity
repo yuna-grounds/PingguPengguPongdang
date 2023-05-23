@@ -10745,6 +10745,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6790048824554755371, guid: ec0513c4295173a44a11170480bf8050, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6861981598648114200, guid: ec0513c4295173a44a11170480bf8050, type: 3}
       propertyPath: m_Layer
       value: 6

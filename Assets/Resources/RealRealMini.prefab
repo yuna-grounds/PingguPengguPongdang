@@ -1118,6 +1118,7 @@ GameObject:
   - component: {fileID: -358731393630383707}
   - component: {fileID: 2171420324522234921}
   - component: {fileID: 5837267063180246137}
+  - component: {fileID: 4037190123806467671}
   m_Layer: 0
   m_Name: RealRealMini
   m_TagString: Untagged
@@ -1134,7 +1135,7 @@ Transform:
   m_GameObject: {fileID: 3857394453550013451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 815.825, y: 1.8872516, z: -2.721}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3603599522204820800}
@@ -1193,6 +1194,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniCam: {fileID: 7347889782013400061, guid: 133514254b779024b820b790cea84778, type: 3}
+--- !u!143 &4037190123806467671
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3857394453550013451}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 0.68
+  m_Radius: 0.21
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.29, z: 0}
 --- !u!1 &3857394453566647341
 GameObject:
   m_ObjectHideFlags: 0

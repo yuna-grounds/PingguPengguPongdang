@@ -12,7 +12,11 @@ public class MiniCamSet : MonoBehaviourPun
         {
             GameObject cam = PhotonNetwork.Instantiate(miniCam.name, transform.position, Quaternion.identity);
             cam.AddComponent<OVRManager>();
+            
+            //cam.AddComponent<C>();
+
             cam.transform.SetParent(transform);
+            cam.transform.parent.gameObject.AddComponent<OVRPlayerController>();
         }
     }
 
