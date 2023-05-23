@@ -6,7 +6,7 @@ using Photon.Pun;
 
 public enum GameState
 {
-    idle, ready, roulette, play, finished
+    idle, ready, roulette, settingPanCake, play, finished
 }
 public class GameManager : MonoBehaviourPun
 {
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviourPun
     {
         gameState = GameState.idle;
         ices = new List<Transform>(iceGround.GetComponentsInChildren<Transform>());
-        ices.RemoveAt(0);
+        ices.RemoveAt(0);           // IceGround를 담은 부모 객체에 스크립트가 들어가는 것을 방지
         foreach (Transform t in ices)
         {
             t.transform.AddComponent<IceAction_KSW>();
@@ -65,26 +65,23 @@ public class GameManager : MonoBehaviourPun
                 // 돌림판이 돌아가는 중의 상태
 
                 // 돌림판이 끝나면, 데드존 세팅 등등..
-                if (deadZone == null)
-                    SetDeadZone();
-                Invoke("ChangeToPlay", 3f);
+                SetDeadZone();
+                gameState = GameState.settingPanCake;
                 break;
-            case GameState.play:
-                // 특수효과 등이 적용된 후 실제로 빙판을 깨는 단계
-                // 빙판을 깰 수 있도록 세팅, 미니펭귄 이동 가능, 
+            case GameState.settingPanCake:
+                // 세팅전을 굽는다
                 if (!playingSettings)
                 {
                     SettingsToPlay();
                     playingSettings = true;
                     print("Round " + round);
-                    int a = 0;
-                    foreach (Transform t in ices)
-                    {
-                        if (t.GetComponent<IceAction_KSW>().GetLife() > 0)
-                            a++;
-                    }
-                    print("This Ice Count : " + a);
                 }
+                Invoke("ChangeToPlay", 3f);
+                break;
+            case GameState.play:
+                // 특수효과 등이 적용된 후 실제로 빙판을 깨는 단계
+                // 빙판을 깰 수 있도록 세팅, 미니펭귄 이동 가능, 
+
                 break;
         }
     }
@@ -97,6 +94,7 @@ public class GameManager : MonoBehaviourPun
                 if (deadZone.GetComponent<IceAction_KSW>().GetLife() == 0)
                 {
                     DeadZoneKill();
+                    gameState = GameState.finished;
                 }
                 break;
             case GameState.play:
@@ -113,13 +111,18 @@ public class GameManager : MonoBehaviourPun
         gameState = GameState.play;
     }
 
+    // 세팅전 굽기
     void SettingsToPlay()
     {
         foreach (Transform t in ices)
         {
             t.transform.GetComponent<IceAction_KSW>().CanBreak();
+            if (t.GetComponent<IceAction_KSW>().GetLife() > 0)
+                t.transform.GetComponent<IceAction_KSW>().ResetLife();
         }
     }
+
+    // 깨지말아요
     void DisableBreaking()
     {
         foreach (Transform t in ices)
@@ -128,6 +131,7 @@ public class GameManager : MonoBehaviourPun
         }
     }
 
+    // 데드존 세팅
     void SetDeadZone()
     {
         if (deadZone != null)
@@ -146,6 +150,7 @@ public class GameManager : MonoBehaviourPun
         deadZone.GetComponent<MeshRenderer>().material = deadMat;
     }
 
+    // 데드존 깨면 아이스 제거
     void DeadZoneKill()
     {
         foreach (Transform t in ices)
@@ -153,18 +158,13 @@ public class GameManager : MonoBehaviourPun
             t.transform.GetComponent<IceAction_KSW>().LifeZero();
         }
     }
-    
+
+
+
+    // Ice에서 본인이 깨졌을 때 이 함수를 호출
     public void Breaked()
     {
         gameState = GameState.ready;
     }
 
-    void IceLifeRollback()
-    {
-        foreach (Transform t in ices)
-        {
-            if (t.GetComponent<IceAction_KSW>().GetLife() > 0)
-                t.GetComponent<IceAction_KSW>().ResetLife();
-        }
-    }
 }

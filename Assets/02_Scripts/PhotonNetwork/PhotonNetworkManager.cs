@@ -20,7 +20,10 @@ public enum NETWORK_STATE
     FailedCreatedRoom,          // 방 생성 실패
     JoiningRoom,                // 방에 접속 중
     FailedJoiningRoom,          // 방에 접속 실패
-    JoinedRoom                  // 룸에 접속됨
+    JoinedRoom,                  // 룸에 접속됨
+    GameOn,                      // 게임 씬 접속
+    Gaming,                      // 게임중
+    GameEnd                     // 게임끝
 }
 
 public struct Info
@@ -342,9 +345,11 @@ public class PhotonNetworkManager : MonoBehaviourPunCallbacks, IPunObservable
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        switch(network)
-        {
-            //case NETWORK_STATE.JoinedRoom:
+        if(network == NETWORK_STATE.GameOn) 
+        { 
+            
+
+
         }
     }
 }
