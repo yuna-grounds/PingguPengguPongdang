@@ -65,7 +65,7 @@ public class IceChange_HJW : MonoBehaviour
 
         // 회전 변경
         float numRotations = 2f; // 로테이션 반복값
-        float duration = 0.1f; // 애니메이션 동작하는 시간
+        float duration = 0.03f; // 애니메이션 동작하는 시간
         Quaternion[] startRotations = new Quaternion[childTransforms.Count];        //자식객체의 rotation시작점
         Quaternion[] targetRotations = new Quaternion[childTransforms.Count];       //자식객체의 rotation시 target점
 
