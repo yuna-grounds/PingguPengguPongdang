@@ -6,7 +6,7 @@ public class RArmFix_Pos_HJW : MonoBehaviour
 {
     public GameObject targetObject;  // 고정시킬 게임 오브젝트
 
-    private Vector3 fixedPosition = new Vector3(0.600f, 0.4f, -0.080f);  // 고정할 위치 값
+    private Vector3 fixedPosition = new Vector3(0f, 0.533f, -0.037f);  // 고정할 위치 값
 
     private void Start()
     {
