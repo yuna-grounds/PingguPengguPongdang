@@ -36,22 +36,56 @@ public class GameManager : MonoBehaviourPun
         {
             t.transform.AddComponent<IceAction_KSW>();
         }
+        SelectedCharacter();
+    }
+
+    GameObject player;
+
+    private void SelectedCharacter()
+    {
         if (PhotonNetwork.IsMasterClient)
         {
-            PhotonNetwork.Instantiate(giantPeng.name, giantPos.position, giantPos.rotation);
+            player = PhotonNetwork.Instantiate(giantPeng.name, giantPos.position, giantPos.rotation);
         }
         else
         {
-            PhotonNetwork.Instantiate(miniPeng.name, miniPos.position, miniPos.rotation);
+            player = PhotonNetwork.Instantiate(miniPeng.name, miniPos.position, miniPos.rotation);
         }
     }
 
+    private void SelectedCharacterCreate()
+    {
+        if (RouletteControl.randomNum == 0)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                player = PhotonNetwork.Instantiate(giantPeng.name, giantPos.position, giantPos.rotation);
+            }
+            else
+            {
+                player = PhotonNetwork.Instantiate(miniPeng.name, miniPos.position, miniPos.rotation);
+            }
+        }
+        else if (RouletteControl.randomNum == 1)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                player = PhotonNetwork.Instantiate(miniPeng.name, miniPos.position, miniPos.rotation);
+            }
+            else
+            {
+                player = PhotonNetwork.Instantiate(giantPeng.name, giantPos.position, giantPos.rotation);
+            }
+        }
+    }
 
     void Update()
     {
         GameFlow();
         GameRule();
     }
+
+    private bool characterOn = true;
 
     void GameFlow()
     {
@@ -75,7 +109,16 @@ public class GameManager : MonoBehaviourPun
                     round++;
                 }
                 // 돌림판이 돌아가는 중의 상태
-
+                if (!RouletteControl.timerFlag) return;
+                if (characterOn)
+                {
+                    characterOn = false;
+                    
+                    Destroy(player.gameObject);
+                    Invoke("SelectedCharacterCreate", 1f);
+                }
+                
+                
                 // 돌림판이 끝나면, 데드존 세팅 등등..
                 SetDeadZone();
                 gameState = GameState.settingPanCake;
