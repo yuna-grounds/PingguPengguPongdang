@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b56fa2a7a44fd4484322c15cd319bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  giantCam: {fileID: 8358369362319961524, guid: cbc7c0c79bd5f8f40951ba9aa70ed72f, type: 3}
+  giantCam: {fileID: 8358369362319961524, guid: 8a73e6014a33e1749a237747f3d8611a, type: 3}
 --- !u!1 &2256581070104243534
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,7 +795,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8290782892783832528, guid: 74b9afbded43de44b80cd204f002ea06, type: 3}
+  - {fileID: 2100000, guid: 2845ca25523cdfb4dbe502d6e19cb3b5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1753,7 +1753,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8830196273332348141, guid: 74b9afbded43de44b80cd204f002ea06, type: 3}
+  - {fileID: 2100000, guid: 9d13f6ceefdea2a439b27046450d4bb9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2111,7 +2111,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7626191068330388430, guid: 74b9afbded43de44b80cd204f002ea06, type: 3}
+  - {fileID: 2100000, guid: 79e4d3c48a8e2cc43b79619068d6fbf4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2271,7 +2271,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8290782892783832528, guid: 74b9afbded43de44b80cd204f002ea06, type: 3}
+  - {fileID: 2100000, guid: 44e318eb303a09a4ead67854f0ca08a9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3208,7 +3208,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8578991229988381114, guid: 74b9afbded43de44b80cd204f002ea06, type: 3}
+  - {fileID: 2100000, guid: 79e4d3c48a8e2cc43b79619068d6fbf4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
