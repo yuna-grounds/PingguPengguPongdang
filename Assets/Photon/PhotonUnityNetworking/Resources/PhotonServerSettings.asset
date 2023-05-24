@@ -46,6 +46,17 @@ MonoBehaviour:
   - DestroyAll
   - SetGiantCam
   - SetMiniCam
+  - CanBreak
+  - ChangeMaterial
+  - CoolSet
+  - GetLife
+  - LifeCheck
+  - LifeZero
+  - NotBreak
+  - ReBuild
+  - ResetLife
+  - ThisIsDeadZone
+  - ThisIsNotDeadZone
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

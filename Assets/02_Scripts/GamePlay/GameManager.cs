@@ -135,16 +135,16 @@ public class GameManager : MonoBehaviourPun
                     round++;
                 }
                 // 돌림판이 돌아가는 중의 상태
-                // if (!RouletteControl.timerFlag) return;
-                //if (characterOn)
-                //{
-                //    characterOn = false;
+                if (!RouletteControl.timerFlag) return;
+                if (characterOn)
+                {
+                    characterOn = false;
 
-                //    DestroyAll();
+                    DestroyAll();
 
-                //    Invoke("SelectedCharacterCreate", 1f);
-                //}
-                
+                    Invoke("SelectedCharacterCreate", 1f);
+                }
+
 
                 // 돌림판이 끝나면, 데드존 세팅 등등..
                 SetDeadZone();

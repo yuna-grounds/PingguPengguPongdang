@@ -45,6 +45,8 @@ public class IceAction_KSW : MonoBehaviourPun
             }
         }
     }
+
+    [PunRPC]
     void LifeCheck()
     {
         if (life == 0)
@@ -55,6 +57,7 @@ public class IceAction_KSW : MonoBehaviourPun
         }
     }
 
+    [PunRPC]
     void ChangeMaterial()
     {
         if (!isDeadZone)
@@ -76,6 +79,7 @@ public class IceAction_KSW : MonoBehaviourPun
         }
     }
 
+    [PunRPC]
     public void ReBuild()
     {
         life = 3;
@@ -83,39 +87,44 @@ public class IceAction_KSW : MonoBehaviourPun
         render.enabled = true;
     }
 
+    [PunRPC]
     public void ResetLife()
     {
         life = 3;
     }
 
+    [PunRPC]
     public void LifeZero()
     {
         life = 0;
     }
+    [PunRPC]
     public void NotBreak()
     {
         isBreakable = false;
     }
+    [PunRPC]
     public void CanBreak()
     {
         isBreakable = true;
     }
 
+    [PunRPC]
     public int GetLife()
     {
         return life;
     }
-
+    [PunRPC]
     public void ThisIsDeadZone()
     {
         isDeadZone = true;
     }
-
+    [PunRPC]
     public void ThisIsNotDeadZone()
     {
         isDeadZone = false;
     }
-
+    [PunRPC]
     IEnumerator CoolSet(Collider other)
     {
         yield return new WaitForSeconds(0.73f);
