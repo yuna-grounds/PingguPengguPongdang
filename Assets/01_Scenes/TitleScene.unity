@@ -3812,7 +3812,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 35, y: 14.999999, z: 0}
+  m_Size: {x: 35, y: 14.999999, z: 1}
   m_Center: {x: -17.5, y: 0, z: 0}
 --- !u!114 &172840147
 MonoBehaviour:
@@ -7203,10 +7203,10 @@ BoxCollider:
   m_GameObject: {fileID: 321065505}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15, y: 20, z: 1}
-  m_Center: {x: 5, y: 0, z: 0}
+  m_Size: {x: 35, y: 20, z: 1}
+  m_Center: {x: 17.5, y: 0, z: 0}
 --- !u!114 &321065512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32499,7 +32499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1138434513
 Transform:
   m_ObjectHideFlags: 0
@@ -40274,7 +40274,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: -60}
+  m_AnchoredPosition: {x: -0.0000038146973, y: -57.13}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1380412689
@@ -40297,7 +40297,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 049d97e6cb4ac6940a0a0bc23a99aac0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f353352c70f3db54cb52415779a4f630, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -49175,7 +49175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1663411115}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 815, y: 3, z: 36.660004}
+  m_LocalPosition: {x: 815, y: 3.5, z: 35.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -55020,10 +55020,10 @@ BoxCollider:
   m_GameObject: {fileID: 1861465475}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15, y: 20, z: 1}
-  m_Center: {x: 5, y: 0, z: 0}
+  m_Size: {x: 35, y: 20, z: 1}
+  m_Center: {x: 17.5, y: 0, z: 0}
 --- !u!114 &1861465482
 MonoBehaviour:
   m_ObjectHideFlags: 0

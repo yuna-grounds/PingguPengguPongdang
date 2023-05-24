@@ -12,9 +12,14 @@ public class IceAction_KSW : MonoBehaviourPun
     bool isDeadZone;
     Material[] mats;
 
+    public GameObject hitParticle;
+    public GameObject breakParticle;
+
     // Start is called before the first frame update
     void Start()
     {
+
+
         life = 3;
         mesh = GetComponent<MeshCollider>();
         render = GetComponent<MeshRenderer>();
@@ -38,12 +43,21 @@ public class IceAction_KSW : MonoBehaviourPun
             StartCoroutine(CoolSet(other));
             life--;
             print("맞아부러써");
+            GameObject hit = PhotonNetwork.Instantiate(hitParticle.name, this.transform.position, Quaternion.identity);
+            StartCoroutine("DestroyTarget", hit);
             if (life == 0)
             {
-
+                GameObject bp = PhotonNetwork.Instantiate(breakParticle.name, this.transform.position, Quaternion.identity);
+                StartCoroutine("DestroyTarget", bp);
                 GameObject.Find("GameManager").SendMessage("Breaked");
             }
         }
+    }
+
+    IEnumerable DestroyTarget(GameObject obj)
+    {
+        yield return new WaitForSeconds(1.5f);
+        PhotonNetwork.Destroy(obj);
     }
 
     [PunRPC]
