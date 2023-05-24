@@ -56,7 +56,6 @@ public class RoomCanvasManager : MonoBehaviourPun
             photonView.RPC("ChangeSceneRPC", RpcTarget.All, "World_KSW");
             PhotonNetworkManager.network = NETWORK_STATE.GameOn;
         }
-
     }
 
 
