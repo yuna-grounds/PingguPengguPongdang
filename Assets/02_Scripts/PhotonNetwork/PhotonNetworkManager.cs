@@ -252,7 +252,16 @@ public class PhotonNetworkManager : MonoBehaviourPunCallbacks, IPunObservable
     {
         print("방 입장");
         network = NETWORK_STATE.JoinedRoom;
-        
+        if (PhotonNetwork.IsMasterClient)
+        {
+            print($"{GameData.name}은 master Client입니다");
+        }
+        else
+        {
+            print($"{GameData.name}은 master Client가 아닙니다");
+        }
+
+
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message)

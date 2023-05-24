@@ -29,6 +29,14 @@ public class GameManager : MonoBehaviourPun
 
     void Start()
     {
+        if(PhotonNetwork.IsMasterClient)
+        {
+            print($"{GameData.name}은 master Client입니다");
+        }
+        else
+        {
+            print($"{GameData.name}은 master Client가 아닙니다");
+        }
         gameState = GameState.idle;
         ices = new List<Transform>(iceGround.GetComponentsInChildren<Transform>());
         ices.RemoveAt(0);           // IceGround를 담은 부모 객체에 스크립트가 들어가는 것을 방지
@@ -55,29 +63,47 @@ public class GameManager : MonoBehaviourPun
 
     private void SelectedCharacterCreate()
     {
+        GameObject prefab = null;
         if (RouletteControl.randomNum == 0)
         {
-            if (PhotonNetwork.IsMasterClient)
+            if (PhotonNetwork.LocalPlayer.IsMasterClient)
             {
-                player = PhotonNetwork.Instantiate(giantPeng.name, giantPos.position, giantPos.rotation);
+                prefab = giantPeng.gameObject;
             }
             else
             {
-                player = PhotonNetwork.Instantiate(miniPeng.name, miniPos.position, miniPos.rotation);
+                prefab = miniPeng.gameObject;
             }
         }
         else if (RouletteControl.randomNum == 1)
         {
-            if (PhotonNetwork.IsMasterClient)
+            if (PhotonNetwork.LocalPlayer.IsMasterClient)
             {
-                player = PhotonNetwork.Instantiate(miniPeng.name, miniPos.position, miniPos.rotation);
+                prefab = miniPeng.gameObject;
             }
             else
             {
-                player = PhotonNetwork.Instantiate(giantPeng.name, giantPos.position, giantPos.rotation);
+                prefab = giantPeng.gameObject;
+            }
+            
+        }
+        player = PhotonNetwork.Instantiate(prefab.name, prefab.transform.position, prefab.transform.rotation);
+    }
+
+    [PunRPC]
+    public void DestroyAll()
+    {
+        GameObject[] objects = GameObject.FindObjectsOfType<GameObject>();
+
+        foreach (GameObject obj in objects)
+        {
+            if (obj.name.Contains("(Clone)"))
+            {
+                PhotonNetwork.Destroy(obj);
             }
         }
     }
+
 
     void Update()
     {
@@ -113,8 +139,9 @@ public class GameManager : MonoBehaviourPun
                 if (characterOn)
                 {
                     characterOn = false;
-                    
-                    Destroy(player.gameObject);
+
+                    DestroyAll();
+
                     Invoke("SelectedCharacterCreate", 1f);
                 }
                 

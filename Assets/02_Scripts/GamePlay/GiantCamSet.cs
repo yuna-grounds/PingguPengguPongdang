@@ -13,6 +13,7 @@ public class GiantCamSet : MonoBehaviourPun
             Vector3 pos = new Vector3(transform.position.x, transform.position.y + 30, transform.position.z);
             Quaternion rot = GameObject.Find("GiantPosition").transform.rotation;
             GameObject cam = PhotonNetwork.Instantiate(giantCam.name, pos, rot);
+            //GameObject cam = Instantiate(giantCam.gameObject, pos, rot);
             cam.transform.Translate(new Vector3(0, 0, 10), Space.Self);
             cam.AddComponent<OVRManager>();
             cam.transform.SetParent(transform);
